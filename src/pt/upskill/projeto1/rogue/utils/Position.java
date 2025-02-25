@@ -1,0 +1,65 @@
+package pt.upskill.projeto1.rogue.utils;
+
+/**
+ * 2D integer position.
+ */
+public class Position {
+
+    private final int x;
+    private final int y;
+
+    /**
+     * @param x horizontal coordinate
+     * @param y vertical coordinate
+     */
+    public Position(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
+     * @return horizontal coordinate
+     */
+    public int getX() {
+        return x;
+    }
+
+    /**
+     * @return vertical coordinate
+     */
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + x;
+        result = prime * result + y;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Position other = (Position) obj;
+        if (x != other.x)
+            return false;
+        return y == other.y;
+    }
+
+    public Position plus(Vector2D vector2d) {
+        return new Position(this.x + vector2d.getX(), this.y + vector2d.getY());
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+}
